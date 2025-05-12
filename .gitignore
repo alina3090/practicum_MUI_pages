@@ -1,0 +1,54 @@
+# Существующие правила (оставлены без изменений)
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+### Оптимизированные новые правила ###
+
+# Системные файлы
+Thumbs.db
+Desktop.ini
+
+# IDE
+.idea/
+
+# Кэши и временные файлы
+.cache/
+*.tmp
+*.temp
+
+# Линтеры и форматтеры
+.eslintcache
+
+# Конфигурационные файлы ОС
+*.swp
+*.swo
+
+# Автогенерируемые файлы
+/out
+/.next
+/dist
+
+# Файлы окружения (все .env файлы кроме .env.example)
+.env*
+!.env.example

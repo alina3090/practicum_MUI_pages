@@ -1,0 +1,3 @@
+D:
+cd D:\python program\practicum_MUI_pages
+npm start
