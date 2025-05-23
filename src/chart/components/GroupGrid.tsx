@@ -3,10 +3,11 @@ import { tGroup } from '../groupdata';
 
 const columns: GridColDef[] = [
     { field: 'Группа', headerName: 'Группа', width: 150 },
-    { field: 'Минимальная высота', headerName: 'Минимальная высота', width: 180, type: 'number' },
-    { field: 'Максимальная высота', headerName: 'Максимальная высота', width: 180, type: 'number' },
-    { field: 'Средняя высота', headerName: 'Средняя высота', width: 180, type: 'number' },
+    { field: 'Минимальный рейтинг', headerName: 'Минимальный рейтинг', width: 180, type: 'number' },
+    { field: 'Максимальный рейтинг', headerName: 'Максимальный рейтинг', width: 180, type: 'number' },
+    { field: 'Средний рейтинг', headerName: 'Средний рейтинг', width: 180, type: 'number' },
 ];
+
 
 type GroupProps = {
     data: tGroup;

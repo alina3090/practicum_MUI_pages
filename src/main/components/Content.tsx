@@ -4,7 +4,7 @@ import structures from '../../data';
 import BuildCard from './BuildCard';
 
 const cardData = [structures[0], structures[1], structures[2], 
-                 structures[3], structures[4], structures[5]]; //Выбираем что будет отображаться
+                 structures[3], structures[4], structures[9]]; //Выбираем что будет отображаться
 
 function Content() {
     return (

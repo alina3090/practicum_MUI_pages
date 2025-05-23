@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import  List  from "./list/List";
 import  Main  from "./main/Main";
-import Building from './building/Building';
+import Building from './movie/Movie';
 import Chart from './chart/Chart';
 import {
   createBrowserRouter,

@@ -56,7 +56,7 @@ function Navbar({ active }: ComponentProps) {
             <Container maxWidth="xl">
                 <StyledToolbar>
                     <Typography variant="h6" sx={{ color: '#5d8aa8' }}>
-                        Самые высокие здания и сооружения
+                        Топовые фильмы
                     </Typography>
                     {/* 3. Основное меню - изменены Button с учетом active (задание 3) */}
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
@@ -77,7 +77,7 @@ function Navbar({ active }: ComponentProps) {
                             color="info" 
                             size="medium"
                         >
-                            Список зданий
+                            Список фильмов
                         </Button>
                         </Link>
 
@@ -144,7 +144,7 @@ function Navbar({ active }: ComponentProps) {
                                     }}
                                 >
                                     <Link to="/list">
-                                    Список зданий
+                                    Список фильмов
                                     </Link>
                                 </StyledMenuItem>
                                 <StyledMenuItem 

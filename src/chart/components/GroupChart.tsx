@@ -10,9 +10,9 @@ type GroupChartProps = {
 
 export default function GroupChart({ data }: GroupChartProps) {
     const [seriesState, setSeriesState] = React.useState({
-        'Максимальная высота': true,
-        'Средняя высота': false,
-        'Минимальная высота': false,
+        'Максимальный рейтинг': true,
+        'Средний рейтинг': false,
+        'Минимальный рейтинг': false,
     });
     const [isBar, setIsBar] = React.useState(true);
 

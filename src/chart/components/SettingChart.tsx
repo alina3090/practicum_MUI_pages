@@ -8,10 +8,11 @@ import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
 import React from 'react';
 
+
 type SeriesState = {
-    'Максимальная высота': boolean;
-    'Средняя высота': boolean;
-    'Минимальная высота': boolean;
+    'Максимальный рейтинг': boolean;
+    'Средний рейтинг': boolean;
+    'Минимальный рейтинг': boolean;
 };
 
 type SettingChartProps = {
@@ -71,32 +72,32 @@ export default function SettingChart({
                 <FormControlLabel
                     control={
                         <Checkbox
-                            checked={series['Максимальная высота']}
+                            checked={series['Максимальный рейтинг']}
                             onChange={handleSeriesChange}
-                            name="Максимальная высота"
+                            name="Максимальный рейтинг"
                         />
                     }
-                    label="Максимальную высоту"
+                    label="Максимальный рейтинг"
                 />
                 <FormControlLabel
                     control={
                         <Checkbox
-                            checked={series['Средняя высота']}
+                            checked={series['Средний рейтинг']}
                             onChange={handleSeriesChange}
-                            name="Средняя высота"
+                            name="Средний рейтинг"
                         />
                     }
-                    label="Среднюю высоту"
+                    label="Средний рейтинг"
                 />
                 <FormControlLabel
                     control={
                         <Checkbox
-                            checked={series['Минимальная высота']}
+                            checked={series['Минимальный рейтинг']}
                             onChange={handleSeriesChange}
-                            name="Минимальная высота"
+                            name="Минимальный рейтинг"
                         />
                     }
-                    label="Минимальную высоту"
+                    label="Минимальный рейтинг"
                 />
             </FormControl>
         </Stack>

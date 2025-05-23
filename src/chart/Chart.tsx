@@ -2,31 +2,26 @@ import { Box, Container, FormControl, InputLabel, MenuItem, Select, SelectChange
 import Navbar from '../components/Navbar';
 import GroupGrid from './components/GroupGrid';
 import GroupChart from './components/GroupChart';
-import { countries, years, types } from './groupdata';
+import { years } from './groupdata';
 import React from 'react';
 
-type GroupByOption = 'Страна' | 'Год' | 'Тип';
+type GroupByOption = 'Год' ;
 
 export default function Chart() {
-    const [group, setGroup] = React.useState<GroupByOption>('Страна');
-    const [groupData, setGroupData] = React.useState(countries);
+    const [group, setGroup] = React.useState<GroupByOption>('Год');
+    const [groupData, setGroupData] = React.useState(years);
 
     const handleChange = (event: SelectChangeEvent<GroupByOption>) => {
         const value = event.target.value as GroupByOption;
         setGroup(value);
         
         switch(value) {
-            case 'Страна':
-                setGroupData(countries);
-                break;
             case 'Год':
                 setGroupData(years);
                 break;
-            case 'Тип':
-                setGroupData(types);
-                break;
+
             default:
-                setGroupData(countries);
+                setGroupData(years);
         }
     };
 
@@ -43,9 +38,7 @@ export default function Chart() {
                             label="Группировать по"
                             onChange={handleChange}
                         >
-                            <MenuItem value="Страна">Стране</MenuItem>
                             <MenuItem value="Год">Году</MenuItem>
-                            <MenuItem value="Тип">Типу</MenuItem>
                         </Select>
                     </FormControl>
                 </Box>

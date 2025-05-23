@@ -1,4 +1,4 @@
-import buildings from "../table";
+import movies from "../table";
 import { ruRU } from '@mui/x-data-grid/locales';
 import Container from '@mui/material/Container';
 import { Box } from "@mui/material";
@@ -12,17 +12,15 @@ import { DataGrid,
     GridToolbarExport,  
 } from "@mui/x-data-grid";
 
-function BuildingsGrid() {
+function MoviesGrid() {
 
-    const rows: GridRowsProp = buildings;
+    const rows: GridRowsProp = movies;
 
     const columns: GridColDef[] = [
-        { field: 'Название', headerName: 'Название'},
-        { field: 'Тип'},
-        { field: 'Страна'},
-        { field: 'Город',},
-        { field: 'Год' },
-        { field: 'Высота'},
+        { field: 'title', headerName: 'Название'},
+        { field: 'year', headerName: 'Год' },
+        { field: 'rating', headerName: 'Рейтинг'},
+        { field: 'director_id', headerName: 'Режиссер'}
     ];   
 
     function CustomToolbar() {
@@ -58,4 +56,4 @@ function BuildingsGrid() {
   );
 }
 
- export default BuildingsGrid;
+ export default MoviesGrid;
