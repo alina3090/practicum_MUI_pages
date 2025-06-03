@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    container_name: alina_frontend
+    depends_on:
+      backend:
+        condition: service_started
+    restart: on-failure
+
+  backend:
+    image: alinapohorukova/finalboss:latest
+    container_name: alina_backend
+    ports:
+      - "5000:5000"
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:5000/" ]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+    restart: on-failure
