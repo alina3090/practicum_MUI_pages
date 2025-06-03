@@ -19,6 +19,7 @@ export default function GroupGrid({ data }: GroupProps) {
             <DataGrid
                 rows={data}
                 columns={columns}
+                getRowId={(row) => row.Группа}
                 initialState={{
                     pagination: {
                         paginationModel: { pageSize: 10 },

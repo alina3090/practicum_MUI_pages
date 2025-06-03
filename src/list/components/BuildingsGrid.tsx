@@ -11,17 +11,52 @@ import { DataGrid,
     GridToolbarFilterButton,
     GridToolbarExport,  
 } from "@mui/x-data-grid";
+import {useState, 
+    useEffect} from 'react';
+
+interface Movie{
+    id: number;
+    title: string;
+    rating: number;
+    year: string;
+}
+
+interface ApiResponse{
+    movies: Movie[];
+    
+}
+
+interface Answer{
+    _embedded: ApiResponse;
+}
 
 function MoviesGrid() {
 
-    const rows: GridRowsProp = movies;
+    const [rows, setRows] = useState<GridRowsProp>([]);
 
     const columns: GridColDef[] = [
         { field: 'title', headerName: 'Название'},
         { field: 'year', headerName: 'Год' },
         { field: 'rating', headerName: 'Рейтинг'},
-        { field: 'director_id', headerName: 'Режиссер'}
+        { field: 'id', headerName: 'id'}
     ];   
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/structures/api/v1/movies');
+                console.log(response);
+                const data: Answer = await response.json();
+                setRows(data._embedded.movies);
+            } catch (err) {
+                console.error("Ошибка при загрузке данных:", err);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+
 
     function CustomToolbar() {
         return (

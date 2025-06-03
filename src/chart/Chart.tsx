@@ -2,28 +2,41 @@ import { Box, Container, FormControl, InputLabel, MenuItem, Select, SelectChange
 import Navbar from '../components/Navbar';
 import GroupGrid from './components/GroupGrid';
 import GroupChart from './components/GroupChart';
-import { years } from './groupdata';
+import { tGroup } from './groupdata';
 import React from 'react';
 
 type GroupByOption = 'Год' ;
 
+const fufel: Record<GroupByOption, string>={'Год': 'http://127.0.0.1:5000/stats/year'};
+
 export default function Chart() {
     const [group, setGroup] = React.useState<GroupByOption>('Год');
-    const [groupData, setGroupData] = React.useState(years);
+    const [groupData, setGroupData] = React.useState<tGroup>([]);
 
-    const handleChange = (event: SelectChangeEvent<GroupByOption>) => {
-        const value = event.target.value as GroupByOption;
-        setGroup(value);
-        
-        switch(value) {
-            case 'Год':
-                setGroupData(years);
-                break;
 
-            default:
-                setGroupData(years);
+    const fetchGroupData = async (selectedGroup: GroupByOption) => {
+        try {
+            const response = await fetch(fufel[selectedGroup]);
+            if (response.ok) {
+                const data = await response.json();
+                setGroupData(data.stats);
+            }
+        } catch (error) {
+            console.error("Ошибка загрузки данных:", error);
         }
     };
+
+     React.useEffect(() => {
+        fetchGroupData(group);
+    }, [group]);
+
+    
+    const handleChange = (event: SelectChangeEvent) => {
+        const selectedGroup = event.target.value as GroupByOption;
+        setGroup(selectedGroup);
+    };
+
+
 
     return (
         <>
